@@ -5,20 +5,33 @@
 1. **Fork this repository** to your GitHub account
 2. **Open in GitHub Codespaces**:
    - Click the green "Code" button
-   - Select "Codespaces" tab
+   - Select "Codespaces" tab  
    - Click "Create codespace on main"
-3. **Wait for environment setup** (about 1-2 minutes)
-   - The database will be automatically initialized
-   - VS Code will open with SQLite extension configured
+3. **Wait for setup** (~1 minute - you'll see "Database initialized successfully!")
 
-## How to Run SQL Queries
+## Running SQL Queries - Three Options
 
-### Option 1: Using SQLTools Extension (Recommended)
-1. Click the database icon in the left sidebar
-2. Click "Interview DB" connection
-3. Write queries in any `.sql` file
-4. Highlight your query and press `Ctrl+E` (or `Cmd+E` on Mac)
-
-### Option 2: Using Command Line
+### Option 1: Command Line (Recommended for Interview)
 ```bash
+# Interactive mode
 sqlite3 database/healthcare.db
+
+# Then type your SQL queries
+SELECT * FROM patients LIMIT 5;
+
+# Type .exit to quit
+```
+
+### Option 2: Run SQL Files
+```bash
+# Create a file with your query
+echo "SELECT * FROM patients LIMIT 5;" > test.sql
+
+# Run it
+sqlite3 database/healthcare.db < test.sql
+```
+
+### Option 3: VS Code SQLite Viewer
+1. Navigate to database/healthcare.db in the file explorer
+2. Click on it to open the database viewer
+3. Click "Run Query" and write your SQL

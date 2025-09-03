@@ -1,37 +1,17 @@
 {
   "name": "SQL Interview Environment",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {},
-    "ghcr.io/devcontainers/features/node:1": {
-      "version": "lts"
-    },
-    "ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
-  },
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
   "customizations": {
     "vscode": {
       "extensions": [
-        "mtxr.sqltools",
-        "mtxr.sqltools-driver-sqlite",
+        "qwtel.sqlite-viewer",
         "ms-python.python"
       ],
       "settings": {
-        "sqltools.useNodeRuntime": true,
-        "sqltools.disableNodeDetectNotifications": true,
-        "sqltools.autoOpenSessionFiles": false,
-        "sqltools.results.location": "current",
-        "sqltools.results.reuseTabs": "connection",
-        "sqltools.connections": [
-          {
-            "name": "Interview DB",
-            "driver": "SQLite",
-            "database": "${workspaceFolder}/database/healthcare.db",
-            "previewLimit": 50
-          }
-        ]
+        "terminal.integrated.defaultProfile.linux": "bash"
       }
     }
   },
-  "postCreateCommand": "cd database && sqlite3 healthcare.db < init.sql && echo 'Database initialized successfully!'",
-  "remoteUser": "vscode"
+  "postCreateCommand": "apt-get update && apt-get install -y sqlite3 && cd database && sqlite3 healthcare.db < init.sql && echo 'Database initialized successfully!'",
+  "remoteUser": "node"
 }
