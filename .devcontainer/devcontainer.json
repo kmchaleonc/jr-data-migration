@@ -3,6 +3,9 @@
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
     "ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
   },
   "customizations": {
@@ -13,7 +16,7 @@
         "ms-python.python"
       ],
       "settings": {
-        "sqltools.useNodeRuntime": false,
+        "sqltools.useNodeRuntime": true,
         "sqltools.disableNodeDetectNotifications": true,
         "sqltools.autoOpenSessionFiles": false,
         "sqltools.results.location": "current",
