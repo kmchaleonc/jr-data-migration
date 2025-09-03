@@ -1,17 +1,6 @@
 {
   "name": "SQL Interview Environment",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "qwtel.sqlite-viewer",
-        "ms-python.python"
-      ],
-      "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash"
-      }
-    }
-  },
-  "postCreateCommand": "apt-get update && apt-get install -y sqlite3 && cd database && sqlite3 healthcare.db < init.sql && echo 'Database initialized successfully!'",
-  "remoteUser": "node"
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "postCreateCommand": "chmod +x setup.sh && ./setup.sh",
+  "remoteUser": "vscode"
 }
