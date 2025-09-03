@@ -32,6 +32,6 @@
       }
     }
   },
-  "postCreateCommand": "cd ~/.vscode-server/extensions/mtxr.sqltools-driver-sqlite-* && npm install sqlite3@5.1.7 && cd ${CODESPACE_VSCODE_FOLDER} && cd database && sqlite3 healthcare.db < init.sql && echo 'Database initialized successfully!'",
+  "postCreateCommand": "bash setup_complete.sh",
   "remoteUser": "vscode"
 }

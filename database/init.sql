@@ -1,4 +1,3 @@
--- Healthcare Data Migration Interview Database
 -- Simulated oncology registry data
 
 -- Drop existing tables if they exist
