@@ -1,0 +1,29 @@
+{
+  "name": "SQL Interview Environment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/warrenbuckley/codespace-features/sqlite:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-sqlite",
+        "ms-python.python"
+      ],
+      "settings": {
+        "sqltools.connections": [
+          {
+            "name": "Interview DB",
+            "driver": "SQLite",
+            "database": "${workspaceFolder}/database/healthcare.db",
+            "previewLimit": 50
+          }
+        ]
+      }
+    }
+  },
+  "postCreateCommand": "cd database && sqlite3 healthcare.db < init.sql && echo 'Database initialized successfully!'",
+  "remoteUser": "vscode"
+}
